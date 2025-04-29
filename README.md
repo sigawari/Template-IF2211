@@ -2,6 +2,7 @@
 
 Template LaTeX untuk Laporan Tugas Besar Mata Kuliah **Strategi Algoritma (IF2211)**  
 Program Studi Teknik Informatika, Institut Teknologi Sumatera
+[Preview versi Overleaf](https://www.overleaf.com/read/vnzbvyscpknp#7e3766)
 
 > 📘 Dibuat oleh Asisten Perkuliahan Strategi Algoritma  
 > 🎓 Terinspirasi dari Template Tugas Akhir Informatika ITERA
