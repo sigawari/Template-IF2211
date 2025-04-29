@@ -1,19 +1,24 @@
-# Latex-TA-IF-ITERA
-Template Latex Tugas Akhir untuk Program Studi Teknik Informatika, ITERA
+# LaTeX-Template-Tubes-Strategi-Algoritma
 
-Oleh Tim Dosen Prodi Teknik Informatika ITERA
+Template LaTeX untuk Laporan Tugas Besar Mata Kuliah **Strategi Algoritma (IF2211)**  
+Program Studi Teknik Informatika, Institut Teknologi Sumatera
 
-![Screenshot LaTex dari TeXstudio](ss.jpg)
+> 📘 Dibuat oleh Asisten Perkuliahan Strategi Algoritma  
+> 🎓 Terinspirasi dari Template Tugas Akhir Informatika ITERA
 
-## Apakah ini?
+![Screenshot LaTeX dari TeXstudio](ss.png)
 
-Proyek ini adalah proyek untuk membuat template Tugas Akhir Teknik Informatika ITERA berbasis Latex. Template dibuat berdasarkan template [Microsoft Word Tugas Akhir Informatika ITERA](https://drive.google.com/file/d/1ZGk0GzCovn7iPYFXfmmWPUmS1PqBW1Ml/view), serta berdasarkan [Templat LaTeX Tesis Informatika ITB](https://github.com/petrabarus/if-itb-latex) oleh Petra Barus & Peb Ruswono Aryan.
+---
 
-## Bagaimana cara menggunakannya?
+## 📌 Apa Ini?
 
-Template dapat didownload dengan mengakses halaman [release](https://github.com/rdhnk/Latex-TA-IF-ITERA/releases). Atau dengan melakukan clone/download zip template. Bukalah file `thesis.tex` dengan menggunakan editor Latex.
+Repositori ini berisi **template LaTeX resmi** untuk menyusun laporan Tugas Besar pada mata kuliah **Strategi Algoritma (IF2211)** di ITERA.  
+Template ini disusun untuk membantu mahasiswa menyusun laporan yang terstruktur, rapi, dan sesuai standar akademik.
 
-## Editor Latex seperti apa?
+Template ini terinspirasi dari:
+- Template Latex Tugas Akhir [Informatika ITERA](https://github.com/rdhnk/Latex-TA-IF-ITERA/blob/main/thesis.tex)
+- Template Microsoft Word Tugas Akhir Informatika ITERA
+- [Templat LaTeX Tesis Informatika ITB](https://github.com/petrabarus/if-itb-latex) oleh Petra Barus & Peb Ruswono Aryan
 
-Template dapat dibuka & dicompile menggunakan editor seperti [TeXstudio](https://www.texstudio.org/) atau [Overleaf](https://www.overleaf.com). Template secara teknis diedit & diuji menggunakan TeXstudio.
+---
 
