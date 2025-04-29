@@ -1,0 +1,79 @@
+\newpage
+\chapter{Implementasi dan Pengujian} \label{Bab IV}
+
+\section{Implementasi Algoritma \textit{Greedy}} \label{IV.Algoritma}
+
+\subsection{Pseudocode}
+
+Berikut adalah pseudocode dari algoritma \textit{Greedy} yang digunakan dalam program:
+
+\begin{quote}
+\begin{verbatim}
+function GreedyAlgorithm(input):
+    sort input based on specific criteria
+    solution = empty list
+    for each item in input:
+        if item is feasible:
+            add item to solution
+    return solution
+\end{verbatim}
+\end{quote}
+
+\subsection{Penjelasan Alur Program}\label{IV.Alur}
+
+Program ini mengimplementasikan algoritma greedy untuk mencari solusi optimal. Berikut adalah langkah-langkah dari alur program:
+
+\begin{enumerate}
+    \item Program mengurutkan data input berdasarkan kriteria tertentu, seperti nilai terbesar atau terkecil, tergantung pada permasalahan yang diselesaikan.
+    \item Setelah data diurutkan, program memeriksa setiap item satu per satu untuk menentukan apakah item tersebut memenuhi syarat (feasible) untuk ditambahkan ke dalam solusi.
+    \item Jika item memenuhi syarat, maka item tersebut ditambahkan ke dalam daftar solusi.
+    \item Proses pemeriksaan berlanjut hingga semua item dalam input selesai diproses.
+    \item Setelah selesai, solusi akhir dikembalikan sebagai hasil akhir dari algoritma.
+\end{enumerate}
+
+Langkah-langkah ini memastikan bahwa solusi yang diperoleh sesuai dengan prinsip greedy, yaitu mengambil keputusan terbaik pada setiap langkah.
+
+\section{Struktur Data yang Digunakan} \label{IV.Struktur Data}
+
+Untuk mendukung implementasi algoritma greedy, digunakan beberapa struktur data berikut:
+
+\begin{enumerate}
+    \item \textbf{Array/List}: Digunakan untuk menyimpan dan mengelola data input yang akan diproses.
+    \item \textbf{Queue/Stack (Opsional)}: Digunakan bila diperlukan dalam pemrosesan lanjutan untuk mengatur urutan elemen.
+    \item \textbf{Boolean Flags}: Digunakan untuk memverifikasi apakah suatu item memenuhi kriteria dan dapat dimasukkan ke dalam solusi.
+\end{enumerate}
+
+Struktur data ini memungkinkan program berjalan secara efisien dalam memproses data berdasarkan strategi greedy.
+
+\section{Pengujian Program} \label{IV.Pengujian Program}
+
+\subsection{Skenario Pengujian}
+
+Pengujian dilakukan untuk membandingkan performa dua metode algoritma greedy yang berbeda. Berikut adalah hasil pengujian:
+
+\vspace{1em} % space before the table
+\begin{longtable}{|c|c|c|}
+	\caption{Contoh Hasil Pengujian}
+	\label{table:4.}\\
+	\hline
+	\textbf{Pengujian} & \textbf{Metode A} & \textbf{Metode B} \\
+	\hline
+	\endhead
+	Kecepatan & 10 ms & 12 ms \\ 
+	\hline
+	Memori & 10 MB & 7 MB \\
+	\hline
+\end{longtable}
+\vspace{1em} % space after the table
+
+Pada Tabel \ref{table:4.}, terdapat dua indikator yang dibandingkan, yaitu kecepatan dan penggunaan memori. Metode A memiliki kecepatan lebih baik (10 ms) dibandingkan Metode B (12 ms). Namun, Metode B lebih hemat memori dengan hanya menggunakan 7 MB, sementara Metode A menggunakan 10 MB.
+
+\subsection{Hasil Pengujian dan Analisis}
+
+Berdasarkan hasil pengujian, berikut analisis dari masing-masing metode:
+
+\begin{enumerate}
+    \item \textbf{Kecepatan}: Metode A unggul dari sisi waktu dengan perbedaan 2 ms. Ini mengindikasikan efisiensi lebih tinggi dalam hal eksekusi.
+    \item \textbf{Penggunaan Memori}: Metode B menunjukkan efisiensi dalam penggunaan memori, menjadikannya lebih ideal untuk sistem dengan keterbatasan memori.
+    \item \textbf{Kesimpulan}: Pemilihan metode tergantung pada kebutuhan aplikasi. Metode A cocok jika waktu respons lebih penting, sedangkan Metode B lebih sesuai jika efisiensi memori menjadi prioritas.
+\end{enumerate}

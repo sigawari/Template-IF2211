@@ -1,0 +1,246 @@
+%-------------------------------------------------------------------%
+%
+% Konfigurasi dokumen LaTeX untuk laporan tesis IF ITB
+% 
+%
+% @author Radhinka Bagaskara, Martin C.T. Manullang, Petra Novandi (ITB)
+%
+%-------------------------------------------------------------------%
+%
+% Berkas asli berasal dari Steven Lolong
+%
+%-------------------------------------------------------------------%
+
+% Import package penting
+\usepackage[utf8]{inputenc}
+\usepackage{subcaption} % Paket untuk mengatur gambar berdampingan
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{blindtext} % Untuk lorem ipsum
+\usepackage{sectsty} % Untuk header & judul
+\usepackage{chngcntr} % Untuk penambahan nomor caption
+\usepackage{etoolbox} % Untuk CRUD variabel (?)
+\usepackage{array} % % Untuk tabel di math mode
+\usepackage{float} % Untuk tabular
+\usepackage{longtable} % Untuk tabel yang potong halaman
+\usepackage{amsmath} % Untuk equation
+\usepackage{enumitem} % Untuk list enumerate yg lebih rapi
+\usepackage[bookmarks]{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+% Ukuran kertas A4
+\special{papersize=210mm,297mm}
+
+% Setting margin
+\usepackage[top=3cm,bottom=3cm,left=3.5cm,right=3cm]{geometry}
+
+% Setting indensasi (untuk halaman-halaman awal sebelum Bab I-V)
+\usepackage{indentfirst}
+\usepackage{parskip}
+\setlength{\parindent}{20pt}
+\setlength{\parskip}{10pt}
+
+% Linespacing 1.5. Tidak serupa dengan 1.5 di Word (RDB)
+\renewcommand{\baselinestretch}{1.5}
+
+% Agar tidak ada kata yang terpotong setiap baris kalimat
+\hyphenpenalty=10000
+
+% Font
+%\usepackage{mathptmx} 
+\usepackage{newtx} 
+% Times New Roman itu copyright dari Microsoft. Ini alternatifnya (RDB)
+
+% Judul bahasa Indonesia
+\usepackage[bahasa]{babel}
+
+% Format tanggal
+\usepackage[style=ddmmyyyy,datesep=-]{datetime2}
+
+% Format citation
+\usepackage[backend=bibtex,citestyle=ieee]{biblatex} % Untuk bisa jalan di Texstudio, harus backend=bibtex
+
+% Format Daftar Pustaka agar lebih rapi
+% Remove "In:" before journal titles
+\renewbibmacro{in:}{}
+% Ensure URLs, DOIs, and ISSNs use the default font (e.g., Times New Roman)
+\renewcommand*{\UrlFont}{\rmfamily} % Use default font for URLs
+\DeclareFieldFormat{issn}{#1}       % Use default font for ISSN
+\DeclareFieldFormat{doi}{#1}        % Use default font for DOI
+% Remove DOI and URL fields if not needed (optional)
+\AtEveryBibitem{
+	\clearfield{doi}
+	\clearfield{url}
+}
+\DeclareLanguageMapping{bahasa}{english}
+
+% Package untuk link di daftar isi.
+\usepackage{titlesec}       % Package Format judul
+\usepackage{ragged2e}		% Alignment
+\usepackage{multirow}		% Untuk bisa merge cell di tabel
+\usepackage{tikz}			% Untuk menggambar kotak pas foto
+\usepackage{setspace}		% Spacing paragraph
+\usepackage{fancyhdr}		% Agar nomor halaman di pojok kanan atas
+\usepackage[figurewithin=none, tablewithin=none]{caption} 		% Caption gambar & tabel
+% Item di Daftar tabel, gambar, dan rumus harusnya tidak ada spasi jika
+% berada di bab yg berbeda2
+\usepackage[titles]{tocloft}% Tipografi untuk halaman Daftar. judul Daftar jadi di tengah & fontnya kecil
+
+% Setting supaya nomor halaman pertama dengan "chapter"
+% berada di kanan atas
+\fancypagestyle{plain}{%
+	\fancyhf{}%
+	\renewcommand{\headrulewidth}{0pt}
+	\fancyhead[R]{\thepage}
+}
+
+% Setting posisi & spasi judul
+\chapterfont{\centering \large}
+\titleformat{\chapter}[display]%
+{\large\centering\bfseries}%
+{\chaptertitlename\ \thechapter}{-3pt}% % Setting spasi antara "Bab" & "Judul Bab"
+{\large\bfseries\uppercase}
+\titleformat{\section}%
+{\normalfont\normalsize\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}%
+{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% Setting spacing di setiap judul chapter
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+
+% Setting nomor pada subbsubsubbab
+\setcounter{secnumdepth}{3}
+
+% Counter untuk figure dan table, agar bertambah walaupun lintas subbab
+\counterwithout{figure}{section}
+\counterwithout{table}{section}
+
+% Supaya tidak ada garis di header
+\renewcommand{\headrulewidth}{0pt}
+
+% Setting penomoran caption gambar, tabel, dan rumus
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+\renewcommand\theequation{\arabic{chapter}.\arabic{equation}}
+
+% Setting spasi list di daftar isi, daftar gambar, daftar tabel, daftar rumus
+\setlength{\cftbeforechapskip}{5.2pt}
+\cftsetindents{section}{1.5em}{2.3em}
+\cftsetindents{subsection}{3em}{3em}
+\setlength{\cfttabindent}{1.5em}
+\setlength{\cftfigindent}{1.5em}
+
+% Mengkapitalkan judul Daftar Isi, Gambar, & Tabel
+\addto\captionsbahasa{%
+	\renewcommand{\contentsname}{DAFTAR ISI}%
+	\renewcommand{\listfigurename}{DAFTAR GAMBAR}%
+	\renewcommand{\listtablename}{DAFTAR TABEL}%
+}
+
+% Tambahkan kata "BAB" sebelum nomor bab di daftar isi
+\renewcommand*\cftchappresnum{\MakeUppercase{BAB}~}
+\renewcommand\chaptername{BAB}
+\settowidth{\cftchapnumwidth}{\cftchappresnum}
+\renewcommand{\cftchapaftersnumb}{\quad}
+\addtocontents{toc}{
+	\protect\renewcommand*\protect\cftchappresnum{\MakeUppercase{\chaptername}~}
+}
+
+% Menambahkan titik2 antara judul bab & halaman di halaman Daftar
+\renewcommand{\cftchapleader}{\dotfill} 
+\renewcommand{\cftsecleader}{\dotfill}
+\renewcommand{\cftsubsecleader}{\dotfill}
+\renewcommand{\cftfigleader}{\dotfill}
+\renewcommand{\cfttableader}{\dotfill}
+
+% Setting Daftar Rumus
+\newcommand{\listequationsname}{DAFTAR RUMUS}
+\newlistof{myequations}{equ}{\listequationsname}
+\newcommand{\myequations}[1]{
+	\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}
+}
+\renewcommand{\cftmyequationspresnum}{Rumus\ } % Agar list rumus di Daftar Rumus ada tulisan "Rumus x.y"
+\newlength{\mylenf}
+\settowidth{\mylenf}{\cftmyequationspresnum}
+\setlength{\cftmyequationsnumwidth}{\dimexpr\mylenf+1.5em} % Menyesuaikan nomor
+\setlength{\cftmyequationsindent}{1.5em} % Menambahkan indentasi daftar rumus
+\renewcommand{\cftmyequationsleader}{\dotfill}
+
+% Setting agar list item di Daftar Gambar & Tabel ada tulisan "Gambar/Tabel x.y"
+\renewcommand\cftfigpresnum{Gambar\ }
+\renewcommand\cfttabpresnum{Tabel\ }
+\settowidth{\mylenf}{\cftfigpresnum}
+\setlength{\cftfignumwidth}{\dimexpr\mylenf+1.5em}
+\setlength{\cfttabnumwidth}{\dimexpr\mylenf+0.5em}
+
+% Setting judul Daftar menjadi di tengah & ukuran large
+%\renewcommand{\cfttoctitlefont}{\hspace*{\fill}\large\bfseries}
+%\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
+%\renewcommand{\cftlottitlefont}{\hspace*{\fill}\large\bfseries}
+%\renewcommand{\cftafterlottitle}{\hspace*{\fill}}
+%\renewcommand{\cftloftitlefont}{\hspace*{\fill}\large\bfseries}
+%\renewcommand{\cftafterloftitle}{\hspace*{\fill}}
+%%\renewcommand{\cftmyequationstitlefont}{\hspace*{\fill}\large\bfseries}
+%%\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
+
+% Untuk mengganti nama bulan di babel bahasa
+% tapi belum jalan (RDB)
+\StartBabelCommands*{bahasa}{date}
+\SetStringLoop{month#1name}{%
+	Januari,Februari,Maret,April,Mei,Juni,%
+	Juli,Agustus,September,Oktober,November,%
+	Desember}
+\EndBabelCommands     
+
+% english title
+\providecommand\titleEN[1]{\providecommand\thetitleEN{#1}}
+
+% Saya lupa ini buat apa (RDB)
+%\renewcommand{\theHsection}{\thepart.section.\thesection}
+
+% Semua dibawah ini berhubungan dengan CRUD variabel (ada simbol @)
+\makeatletter % Jangan dihapus
+
+% Command untuk variabel NIM
+\newcommand{\nim}[1]{\def\@nim{#1}}
+\newcommand{\printnim}{\@nim}
+
+% Command untuk variabel Dosen Pembimbing I & II
+\newcommand{\namadosbinga}[1]{\def\@namadosbinga{#1}}
+\newcommand{\namadosbingb}[1]{\def\@namadosbingb{#1}}
+\newcommand{\nipdosbinga}[1]{\def\@nipdosbinga{#1}}
+\newcommand{\nipdosbingb}[1]{\def\@nipdosbingb{#1}}
+\newcommand{\printnamadosbinga}{\@namadosbinga}
+\newcommand{\printnamadosbingb}{\@namadosbingb}
+\newcommand{\printnipdosbinga}{\@nipdosbinga}
+\newcommand{\printnipdosbingb}{\@nipdosbingb}
+\newcommand{\dosbingA}[2]{\namadosbinga{#1} \nipdosbinga{#2}}
+\newcommand{\dosbingB}[2]{\namadosbingb{#1} \nipdosbingb{#2}}
+
+% Command untuk variabel Dosen Penguji I & II
+\newcommand{\namapengujia}[1]{\def\@namapengujia{#1}}
+\newcommand{\namapengujib}[1]{\def\@namapengujib{#1}}
+\newcommand{\nippengujia}[1]{\def\@nippengujia{#1}}
+\newcommand{\nippengujib}[1]{\def\@nippengujib{#1}}
+\newcommand{\printnamapengujia}{\@namapengujia}
+\newcommand{\printnamapengujib}{\@namapengujib}
+\newcommand{\printnippengujia}{\@nippengujia}
+\newcommand{\printnippengujib}{\@nippengujib}
+\newcommand{\pengujiA}[2]{\namapengujia{#1} \nippengujia{#2}}
+\newcommand{\pengujiB}[2]{\namapengujib{#1} \nippengujib{#2}}
+
+% Command untuk merubah spacing equation
+\g@addto@macro\normalsize{%
+	\setlength\abovedisplayskip{-10pt}
+	\setlength\belowdisplayskip{-10pt}
+	\setlength\abovedisplayshortskip{-10pt}
+	\setlength\belowdisplayshortskip{-10pt}
+}
+
+\makeatother % Jangan dihapus
